@@ -2,10 +2,12 @@
 
 <!-- add content here -->
 <% @landmarks.each do |landmark| %>
-<h3><%=landmark.name%></h3>
-<a href='/landmarks/<%=landmark.id%>/edit'>Edit this Landmark</a>
-<a href='/landmarks/<%=landmark.id%>'>Check out this Landmark</a>
+<ul>
+<li><%=landmark.name%></li>
+<li><%=landmark.year_completed%></li>
+</ul>
 <%end%>
+
 <a href= '/landmarks/new'>Create New Landmark</a>
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
