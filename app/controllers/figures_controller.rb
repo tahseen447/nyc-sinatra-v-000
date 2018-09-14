@@ -9,6 +9,12 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find_by_id(params[:id])
+    erb :'figures/edit'
+  end
+
   post '/figures' do
     @figure = Figure.create(params[:figure])
     if !params[:title][:name].empty?
@@ -26,10 +32,6 @@ class FiguresController < ApplicationController
     erb :'figures/show'
   end
 
-  get '/figures/:id/edit' do
-    @figure = Figure.find_by_id(params[:id])
-    erb :'figures/edit'
-  end
 
   patch '/figures/:id' do
       @figure = Figure.find_by_id(params[:id])
