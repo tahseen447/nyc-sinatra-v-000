@@ -17,8 +17,13 @@
   <input type="text" name="title[name]" id="new_title"></br>
 <br>
   <h3>Edit Landmarks</h3>
+  <% Landmark.all.each do |landmark| %>
+    <label><%= landmark.name %></label>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="<%= landmark.name %>" <%='checked' if @figure.landmarks.include?(landmark) %>>
+  <% end %>
+  
   <%Landmark.all.each do |landmark| %>
-  <input type="checkbox" name="figure[landmark_ids][]" id="<%=landmark.name%>" value="<%=landmark.id%>" <%="checked" if @figure.landmarks.include?(landmark)%>><%end%><br>
+  <input type="checkbox" name="figure[landmark_ids][]" id="<%=landmark.name%>" value="<%=landmark.id%>" <%='checked' if @figure.landmarks.include?(landmark)%>><%end%><br>
   <%end%>
 <br>
   <h3>Create a New Landmark</h4>
